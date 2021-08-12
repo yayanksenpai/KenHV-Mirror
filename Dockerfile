@@ -3,6 +3,9 @@ FROM kenhv/mirrorbot:ubuntu
 WORKDIR /usr/src/app
 COPY . .
 
+RUN apt-get -qq update && \
+    apt-get -qq install -y wget unzip
+
 RUN set -ex \
     && chmod 777 /usr/src/app \
     && cp netrc /root/.netrc \
